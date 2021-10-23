@@ -1,0 +1,28 @@
+<div id="app" style="text-align: center;">
+  <h1>v-model</h1>
+  <p>{{ msg }}</p>
+  <input type="text" v-model="msg" />
+  <hr />
+  <h1>v-bind</h1>
+  <p v-bind:title="title">{{ title }}</p>
+  <hr />
+  <h1>v-on</h1>
+  <p>{{ reverseMessage }}</p>
+  <p v-on:click="reverseMessage">反转</p>
+</div>
+<script type="module">
+  import { ToyVue as Vue } from './toy-vue.js'
+  var app = new Vue({
+    el: '#app',
+    data: {
+      title: 'this is a title !!!',
+      msg: 'this is a message !!!',
+      reverseMessage:'this is reverseMessage !!!'
+    },
+    methods: {
+      reverseMessage(){
+        this.reverseMessage = this.reverseMessage.split('').reverse().join('');
+      }
+    }
+  });
+</script>
